@@ -1,0 +1,17 @@
+# Build output
+build/
+*.o
+*.obj
+*.exe
+*.out
+*.app
+*.dSYM/
+
+# Lesson binaries built by hand (c++ ... -o calc)
+lessons/**/calc
+lessons/**/tests
+lessons/**/gui
+
+# OS / editor clutter
+.DS_Store
+Thumbs.db
