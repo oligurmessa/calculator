@@ -1,8 +1,8 @@
 CXX ?= c++
 CXXFLAGS ?= -std=c++17 -Wall -Wextra -pedantic -g
 .DEFAULT_GOAL := all
-.PHONY: all test lesson01 lesson02 lesson03
-all: lesson01 lesson02 lesson03
+.PHONY: all test lesson01 lesson02 lesson03 lesson04
+all: lesson01 lesson02 lesson03 lesson04
 build:
 	mkdir -p build
 lesson01: build/lesson01
@@ -14,3 +14,6 @@ build/lesson02: lessons/02-making-choices/main.cpp | build
 lesson03: build/lesson03
 build/lesson03: lessons/03-loops-and-functions/main.cpp | build
 	$(CXX) $(CXXFLAGS) lessons/03-loops-and-functions/main.cpp -o $@
+lesson04: build/lesson04
+build/lesson04: lessons/04-strings-and-tokens/main.cpp | build
+	$(CXX) $(CXXFLAGS) lessons/04-strings-and-tokens/main.cpp -o $@
