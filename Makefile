@@ -1,8 +1,8 @@
 CXX ?= c++
 CXXFLAGS ?= -std=c++17 -Wall -Wextra -pedantic -g
 .DEFAULT_GOAL := all
-.PHONY: all test lesson01 lesson02 lesson03 lesson04 lesson05 lesson06
-all: lesson01 lesson02 lesson03 lesson04 lesson05 lesson06
+.PHONY: all test lesson01 lesson02 lesson03 lesson04 lesson05 lesson06 lesson07
+all: lesson01 lesson02 lesson03 lesson04 lesson05 lesson06 lesson07 test
 build:
 	mkdir -p build
 lesson01: build/lesson01
@@ -23,3 +23,8 @@ build/lesson05: lessons/05-recursion-and-precedence/main.cpp | build
 lesson06: build/lesson06
 build/lesson06: lessons/06-classes-and-files/main.cpp lessons/06-classes-and-files/calculator.cpp lessons/06-classes-and-files/calculator.hpp | build
 	$(CXX) $(CXXFLAGS) lessons/06-classes-and-files/main.cpp lessons/06-classes-and-files/calculator.cpp -o $@
+lesson07: build/tests
+build/tests: lessons/07-testing/tests.cpp lessons/06-classes-and-files/calculator.cpp lessons/06-classes-and-files/calculator.hpp | build
+	$(CXX) $(CXXFLAGS) lessons/07-testing/tests.cpp lessons/06-classes-and-files/calculator.cpp -o $@
+test: build/tests
+	./build/tests
